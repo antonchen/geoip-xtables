@@ -1,0 +1,18 @@
+language: minimal
+
+services:
+- docker
+
+before_install:
+- docker pull sander1/xtables_geoip
+
+script:
+- mkdir ~/xt_build
+- docker run -e LICENSE_KEY=$LICENSE_KEY --rm -v ~/xt_build:/xt_build sander1/xtables_geoip
+
+after_success:
+- bash push.sh
+
+env:
+  global:
+    secure: q21hP9MUTlIEFacq3XAEVNakpeprBaTbf2/ed+VUhNlmlzOJJICn/5OB4DAssIGkWk/B1QxhWBRpXzo8zsVSIsF84oExGzcxucj85pisqgPmyi5BQANHR0ult/P0TqmB7AC2zvl9OtCxOZz02clOvB3M1UBMltcp/WU5HvYQ5AMwIBZf1eZFudAK7OsBJCUHvHS6JE1iQtxZtwuQw7nsXcI9WP/Gs4Ktmqu50OQM/zu+ab+8GpWOyQk/6pyU7FWYt0muVIqGGoP2z2iNXetwRBAzF3evo5RRHStSX9hs1rEMgRBoLrsozPeczKHBMUQf3GTf6eVgBtbiyzJ3Bw8vDWYDVuZKTthiPYTKrasPJ/dXD+xvlUKCMurLKEvS2ZS4eywwa9V3NI2KS4PYVcy6/HwWIodXHn7DBlyY3JCmRn3JEpurOm7flN5K/z45SQmd4AKQQZ6qAICYHWZmGWp5s2WKO1cuAPdqjDSstS3NO6VchRNyDKaGDv4Mhp3J3gouEqGtiWSKbWQaQwzaNWrZG6UZtC1DkDTf3S2hfx0hG9GkWYZEwnEnu5g6MeEp+cXkwdiz1uqDoAdW5rUQY+/6sMNEzEAn1YGzhpv/VHkBMwHJMD6xS3zffavLT0ps8pjnXgzuxo0HsbGKBbYxNF14QXH4wPaCK9YXN2oh298D6Tc=
