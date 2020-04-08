@@ -2,10 +2,10 @@ language: minimal
 services:
 - docker
 before_install:
-- docker pull sander1/xtables_geoip
+- docker pull 0x416e746f6e0a/geoip-xtables
 script:
 - mkdir ~/xt_build
-- docker run -e LICENSE_KEY=$LICENSE_KEY --rm -v ~/xt_build:/xt_build sander1/xtables_geoip
+- docker run -e LICENSE_KEY=$LICENSE_KEY --rm -v ~/xt_build:/xt_build 0x416e746f6e0a/geoip-xtables
 after_success:
 - bash push.sh
 env:
